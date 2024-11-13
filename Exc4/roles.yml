@@ -1,0 +1,39 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+ namespace: default
+ name: cluster-pod-logs
+rules:
+- apiGroups: ["", "apps", "networking.k8s.io"]
+  resources: ["pods", "pods/log"]
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+ namespace: default
+ name: cluster-pod-reader
+rules:
+- apiGroups: ["", "apps", "networking.k8s.io"]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list", ]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+ namespace: default
+ name: cluster-pod-writer
+rules:
+- apiGroups: ["", "apps", "networking.k8s.io"]
+  resources: ["pods"]
+  verbs: ["create", "patch", "update", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+ namespace: default
+ name: cluster-secrets-all-permissions
+rules:
+- apiGroups: ["", "apps", "networking.k8s.io"]
+  resources: ["secrets"]
+  verbs: ["*"]

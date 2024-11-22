@@ -26,7 +26,7 @@ metadata:
 rules:
 - apiGroups: ["", "apps", "networking.k8s.io"]
   resources: ["pods"]
-  verbs: ["create", "patch", "update", "delete"]
+  verbs: ["create", "patch", "update", "delete", "get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole

@@ -8,6 +8,7 @@ minikube start --cni calico
 ### 2. Настроить политики
 ```bash
 kubectl apply -f default-deny-ingress.yaml
+kubectl apply -f default-deny-egress.yaml
 kubectl apply -f non-admin-api-allow.yaml
 kubectl apply -f admin-api-allow.yaml
 ```
@@ -47,8 +48,7 @@ done
 ### 9. Удалить политики
 ```bash
 kubectl delete -f default-deny-ingress.yaml
+kubectl delete -f default-deny-egress.yaml
 kubectl delete -f non-admin-api-allow.yaml
 kubectl delete -f admin-api-allow.yaml
 ```
-
-# 21.11.2024
